@@ -8,17 +8,12 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    init {
-        System.loadLibrary("keys")
-    }
-
-    private external fun getAPIKey(): String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<TextView>(R.id.apiKey).text = getAPIKey()
-        Log.d("APIKEY", getAPIKey())
+        findViewById<TextView>(R.id.apiKey).text = ApiKeys.getAPIKey()
+        Log.d("APIKEY", ApiKeys.getAPIKey())
     }
 }
