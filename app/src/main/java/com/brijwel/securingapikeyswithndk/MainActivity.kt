@@ -13,7 +13,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<TextView>(R.id.apiKey).text = ApiKeys.getAPIKey()
+        findViewById<TextView>(R.id.apiKey).text = """
+            ${ApiKeys.getAPIKey()}
+            ${ApiKeys.getAPIKeyByType(ApiKeys.AUTH)}
+            ${ApiKeys.getAPIKeyByType(ApiKeys.CHAT)}
+            ${ApiKeys.getAPIKeyByType(ApiKeys.BASE)}
+            """.trimIndent()
+
         Log.d("APIKEY", ApiKeys.getAPIKey())
+        Log.d("APIKEY", ApiKeys.getAPIKeyByType(ApiKeys.AUTH))
+        Log.d("APIKEY", ApiKeys.getAPIKeyByType(ApiKeys.CHAT))
+        Log.d("APIKEY", ApiKeys.getAPIKeyByType(ApiKeys.BASE))
     }
 }
